@@ -18,22 +18,24 @@
     </div>
 
   </div>
-  <v-container class="mt-10 mb-10" fluid>
-    <v-row>
-      <v-col class="mx-auto" cols="9">
-        <v-card class="mx-auto ma-2" flat>
-          <span class="text-body-1" style="line-height: 2;">
-            <p class="mb-5">
-              {{ t.homeParagraph1 }}
-            </p>
-            <p>
-              {{ t.homeParagraph2 }}
-            </p>
-          </span>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+  <div class="bg-grey-lighten-4">
+    <v-container class="pt-10 mb-10" fluid>
+      <v-row>
+        <v-col class="mx-auto" cols="9">
+          <v-card class="mx-auto ma-2 " variant="text">
+            <span class="text-body-1" style="line-height: 2;">
+              <p class="mb-5">
+                {{ t.homeParagraph1 }}
+              </p>
+              <p>
+                {{ t.homeParagraph2 }}
+              </p>
+            </span>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+  </div>
 
   <v-container fluid id="features" class="mt-2">
     <v-row align="center" justify="center">

@@ -9,25 +9,35 @@
 
 
                 </v-col>
-                <v-col class="mt-10">
+                <v-col class="mt-10" cols="7">
 
-                    <v-btn stacked>
-                        <RouterLink to="/about" class="mx-2 text-decoration-none text-black font-weight-bold">
+                    <v-btn variant="plain">
+                        <RouterLink to="/"
+                            class="mx-2 text-decoration-none text-black font-weight-bold text-capitalize">
+                            {{ t.home }}
+                        </RouterLink>
+                    </v-btn>
+                    <v-btn variant="plain">
+                        <RouterLink to="/about"
+                            class="mx-2 text-decoration-none text-black font-weight-bold text-capitalize">
                             {{ t.about }}
                         </RouterLink>
                     </v-btn>
-                    <v-btn stacked>
-                        <router-link to="/contact" class="mx-2 text-decoration-none text-black font-weight-bold">
+                    <v-btn variant="plain">
+                        <router-link to="/contact"
+                            class="mx-2 text-decoration-none text-black font-weight-bold text-capitalize">
                             {{ t.contact }}
                         </router-link>
                     </v-btn>
-                    <v-btn stacked>
-                        <RouterLink to="/" class="mx-2 text-decoration-none text-black font-weight-bold">
+                    <v-btn variant="plain">
+                        <RouterLink to="/"
+                            class="mx-2 text-decoration-none text-black font-weight-bold text-capitalize">
                             {{ t.business }}
                         </RouterLink>
                     </v-btn>
-                    <v-btn stacked>
-                        <RouterLink to="/" class="mx-2 text-decoration-none text-black font-weight-bold">
+                    <v-btn variant="plain">
+                        <RouterLink to="/"
+                            class="mx-2 text-decoration-none text-black font-weight-bold text-capitalize">
                             {{ t.partnership }}
                         </RouterLink>
                     </v-btn>
@@ -35,7 +45,7 @@
                         <template v-slot:activator="{ props }">
                             <v-btn color="primary" v-bind="props">
                                 <v-icon> mdi-web-box</v-icon>
-                                <span class="text-black">
+                                <span class="text-black text-capitalize">
                                     {{ selectedLanguage === 'Japanese' ? '日本語' : 'English' }}
                                 </span>
                             </v-btn>

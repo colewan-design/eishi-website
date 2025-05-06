@@ -4,7 +4,7 @@
             <v-col cols="10">
                 <v-row>
                     <v-col cols="12" class="text-center">
-                        <h1 class="font-weight-light display-2">{{ t.partners }}</h1>
+                        <h1 class="font-weight-light display-2 text-primary">{{ t.partners }}</h1>
                     </v-col>
 
                     <v-col cols="12" sm="3" v-for="(logo, i) in partner_logo" :key="i" class="text-center ma-5">

@@ -1,9 +1,9 @@
 <template>
-    <v-container class="mt-10">
-        <v-row justify="center" class="mt-10">
-            <v-col cols="10">
+    <v-container>
+        <v-row justify="center">
+            <v-col>
                 <v-row>
-                    <v-col cols="12" class="text-center">
+                    <v-col cols="12" class="text-center " style="padding-bottom: 10rem;">
                         <h1 class="font-weight-light display-2 text-primary">{{ t.partners }}</h1>
                     </v-col>
 
@@ -18,7 +18,7 @@
         </v-row>
 
         <v-row>
-            <v-col class="text-center">
+            <v-col class="text-center mt-10 mb-10">
                 <v-btn size="x-large" class="mx-auto mt-5" color="primary" rounded="lg">
                     {{ t.becomePartner }}
                 </v-btn>

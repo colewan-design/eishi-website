@@ -69,6 +69,15 @@ export default {
         residentialLocation: "Location: Tabuk City, Kalinga Province",
         residentialLandsP1: "The Philippines’s real estate market has experienced steady growth, fueled by factors such as low interest rates, increasing foreign investment, government infrastructure projects, rapid urbanization, population growth, economic stability and the growing middle class, despite the several financial crisis and the Covid pandemic.",
         residentialLandsP2: "In November 2024, Eishi had purchased 42 residential lots in Tabuk City, Kalinga. The 42 lots are located near the Kalinga Capitol and its price is expected to increase over the years. Also, Eishi is planning to offer the said lots to the National Housing Authority for the government housing projects of City of Tabuk.",
+        partnershipOpportunities: "Partnership Opportunities",
+        partnershipOpportunitiesP1: "At Eishi Property Holdings, we recognize the transformative power of collaboration in the real estate sector.",
+        partnershipOpportunitiesP2: "We are actively seeking partnerships with local and international firms, government agencies, and investors who share our vision for sustainable development and community enhancement.",
+        forBusinessPartners: "For Business Partners",
+        partnerP1: "We offer various partnership models tailored to meet your organization's unique needs. Whether you’re looking to co-develop residential or commercial properties, or you seek to leverage our expertise in navigating the Philippine real estate market, Eishi is your ideal partner. Together, we can create impactful projects that deliver mutual benefits and enhance property value.",
+        governmentCollab: "For Government Collaborations",
+        governmentCollabP1: "Eishi is committed to fostering public-private partnerships (PPP) that address community needs while ensuring sustainable growth. We welcome collaboration with government agencies to develop affordable housing, infrastructure projects, and urban developments that align with public goals.",
+        corporateSocial: "Corporate Social Responsibility (CSR)",
+        corporateSocialP1: "We believe that successful partnerships should extend beyond business objectives to make a positive impact on society. Our CSR initiatives focus on promoting sustainable practices, supporting local communities, and enhancing the quality of life for residents. Through collaborations that prioritize environmental stewardship and social responsibility, we aim to contribute to the broader goals of community development."
     },
     Japanese: {
         home: "ホーム",

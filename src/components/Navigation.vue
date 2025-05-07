@@ -30,7 +30,7 @@
                         </router-link>
                     </v-btn>
                     <v-btn variant="plain">
-                        <RouterLink to="/"
+                        <RouterLink to="/business_holdings"
                             class="mx-2 text-decoration-none text-black font-weight-bold text-capitalize">
                             {{ t.business }}
                         </RouterLink>

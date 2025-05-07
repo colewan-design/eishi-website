@@ -21,18 +21,17 @@
                         <strong>Extension Office:</strong> 365-B, Rev. Rulite Bldg., Lower Magsaysay, Baguio
                     </p>
                     <v-row>
-                        <v-col cols="12" md="6" class="mb-4">
-                            <v-text-field variant="outlined" rounded label="First Name" class="mb-4"></v-text-field>
+                        <v-col cols="12" md="6">
+                            <v-text-field variant="outlined" rounded label="First Name"></v-text-field>
                         </v-col>
-                        <v-col cols="12" md="6" class="mb-4">
-                            <v-text-field variant="outlined" rounded label="Last Name" class="mb-4"></v-text-field>
+                        <v-col cols="12" md="6">
+                            <v-text-field variant="outlined" rounded label="Last Name"></v-text-field>
                         </v-col>
-                        <v-col cols="12" class="mb-4">
-                            <v-text-field variant="outlined" type="email" rounded label="Email"
-                                class="mb-4"></v-text-field>
+                        <v-col cols="12">
+                            <v-text-field variant="outlined" type="email" rounded label="Email"></v-text-field>
                         </v-col>
-                        <v-col cols="12" class="mb-4">
-                            <v-textarea variant="outlined" rounded label="Message" rows="4" class="mb-4"></v-textarea>
+                        <v-col cols="12">
+                            <v-textarea variant="outlined" rounded label="Message" rows="4"></v-textarea>
                         </v-col>
                         <v-col cols="12" class="text-center">
                             <v-btn color="primary" rounded>Submit</v-btn>

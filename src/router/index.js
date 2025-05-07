@@ -24,6 +24,11 @@ const router = createRouter({
       name: 'business_holdings',
       component: () => import('../views/BusinessHoldings.vue'),
     },
+    {
+      path: '/partnership_opportunities',
+      name: 'partnership_opportunities',
+      component: () => import('../views/PartnershipOpportunities.vue'),
+    },
   ],
   scrollBehavior(to, from, savedPosition) {
     // Always scroll to top

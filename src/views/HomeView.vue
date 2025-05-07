@@ -63,7 +63,10 @@
         <v-row>
 
           <v-btn size="x-large" class="mx-auto mt-5" color="primary" rounded="lg">
-            {{ t.browseBusiness }}
+            <RouterLink to="/business_holdings"
+              class="mx-2 text-decoration-none text-white font-weight-bold text-capitalize">
+              {{ t.browseBusiness }}
+            </RouterLink>
           </v-btn>
 
         </v-row>

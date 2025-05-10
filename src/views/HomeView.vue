@@ -1,19 +1,44 @@
+<style scoped>
+.hero-container {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.video-background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 1rem;
+}
+</style>
 <template>
-  <div style="position: relative; width: 100%; height: 100vh; overflow: hidden;">
-    <div style="height: 100vh;">
-      <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
-        <source src="/eishi/videos/sample.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </div>
+  <div class="hero-container position-relative">
+    <video autoplay loop muted playsinline class="video-background">
+      <source src="/eishi/videos/sample.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
 
-
-    <!-- Centered text overlay -->
-    <div class="d-flex flex-column align-center justify-center text-center"
-      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; color: white; background: rgba(0,0,0,0.4);">
-      <h1 style="font-size: 5rem;" class="font-weight-bold mb-4">{{ t.welcome }}</h1>
+    <!-- Overlay Text -->
+    <div class="overlay d-flex flex-column align-center justify-center text-center">
+      <h1 class="font-weight-bold mb-4 display-1 display-md-2 display-lg-1">
+        {{ t.welcome }}
+      </h1>
       <v-btn rounded size="x-large" class="mt-5" color="primary">
-        <RouterLink to="/about" class="mx-2 text-decoration-none text-white">{{ t.aboutUs }}</RouterLink>
+        <RouterLink to="/about" class="mx-2 text-decoration-none text-white">
+          {{ t.aboutUs }}
+        </RouterLink>
       </v-btn>
     </div>
 
@@ -48,11 +73,13 @@
           <v-col cols="12" sm="4" class="text-center pa-10" v-for="(feature, i) in business_holdings" :key="i">
             <v-hover>
               <template v-slot:default="{ isHovering, props }">
-                <v-card class="card" shaped :elevation="isHovering ? 10 : 4">
+                <v-card class="card" shaped :elevation="isHovering ? 10 : 4" rounded="lg">
                   <v-img v-bind="props" :src="feature.img" height="300px" cover :class="isHovering ? 'zoom-efect' : ''">
                     <div class="fill-height bottom-gradient"></div>
                   </v-img>
-                  <h1 class="font-weight-regular">{{ t[feature.title] }}</h1>
+                  <v-card-text class="text-center py-6">
+                    <h3 class="font-weight-medium text-primary text-h6">{{ t[feature.title] }}</h3>
+                  </v-card-text>
 
                 </v-card>
               </template>

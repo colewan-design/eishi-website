@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <Navigation :color="color" :flat="flat" />
-    <v-main>
+    <v-main style="margin-top: 5rem;">
 
       <router-view />
     </v-main>

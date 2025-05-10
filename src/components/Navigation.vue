@@ -10,37 +10,45 @@
 
                 </v-col>
                 <v-col class="mt-10" cols="7">
+                    <RouterLink to="/" class="mx-2 text-decoration-none text-black font-weight-bold text-capitalize">
+                        <v-btn variant="plain">
 
-                    <v-btn variant="plain">
-                        <RouterLink to="/"
-                            class="mx-2 text-decoration-none text-black font-weight-bold text-capitalize">
                             {{ t.home }}
-                        </RouterLink>
-                    </v-btn>
-                    <v-btn variant="plain">
-                        <RouterLink to="/about"
-                            class="mx-2 text-decoration-none text-black font-weight-bold text-capitalize">
+
+                        </v-btn>
+                    </RouterLink>
+                    <RouterLink to="/about"
+                        class="mx-2 text-decoration-none text-black font-weight-bold text-capitalize">
+                        <v-btn variant="plain">
+
                             {{ t.about }}
-                        </RouterLink>
-                    </v-btn>
-                    <v-btn variant="plain">
-                        <router-link to="/contact"
-                            class="mx-2 text-decoration-none text-black font-weight-bold text-capitalize">
+
+                        </v-btn>
+                    </RouterLink>
+                    <router-link to="/contact"
+                        class="mx-2 text-decoration-none text-black font-weight-bold text-capitalize">
+                        <v-btn variant="plain">
+
                             {{ t.contact }}
-                        </router-link>
-                    </v-btn>
-                    <v-btn variant="plain">
-                        <RouterLink to="/business_holdings"
-                            class="mx-2 text-decoration-none text-black font-weight-bold text-capitalize">
+
+                        </v-btn>
+                    </router-link>
+                    <RouterLink to="/business_holdings"
+                        class="mx-2 text-decoration-none text-black font-weight-bold text-capitalize">
+                        <v-btn variant="plain">
+
                             {{ t.business }}
-                        </RouterLink>
-                    </v-btn>
-                    <v-btn variant="plain">
-                        <RouterLink to="/partnership_opportunities"
-                            class="mx-2 text-decoration-none text-black font-weight-bold text-capitalize">
+
+                        </v-btn>
+                    </RouterLink>
+                    <RouterLink to="/partnership_opportunities"
+                        class="mx-2 text-decoration-none text-black font-weight-bold text-capitalize">
+                        <v-btn variant="plain">
+
                             {{ t.partnership }}
-                        </RouterLink>
-                    </v-btn>
+
+                        </v-btn>
+                    </RouterLink>
                     <v-menu>
                         <template v-slot:activator="{ props }">
                             <v-btn color="primary" v-bind="props">

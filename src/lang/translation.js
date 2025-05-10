@@ -77,7 +77,12 @@ export default {
         governmentCollab: "For Government Collaborations",
         governmentCollabP1: "Eishi is committed to fostering public-private partnerships (PPP) that address community needs while ensuring sustainable growth. We welcome collaboration with government agencies to develop affordable housing, infrastructure projects, and urban developments that align with public goals.",
         corporateSocial: "Corporate Social Responsibility (CSR)",
-        corporateSocialP1: "We believe that successful partnerships should extend beyond business objectives to make a positive impact on society. Our CSR initiatives focus on promoting sustainable practices, supporting local communities, and enhancing the quality of life for residents. Through collaborations that prioritize environmental stewardship and social responsibility, we aim to contribute to the broader goals of community development."
+        corporateSocialP1: "We believe that successful partnerships should extend beyond business objectives to make a positive impact on society. Our CSR initiatives focus on promoting sustainable practices, supporting local communities, and enhancing the quality of life for residents. Through collaborations that prioritize environmental stewardship and social responsibility, we aim to contribute to the broader goals of community development.",
+        partnerBenefitTitle: "Benefits of Partnering with Eishi:",
+        partnerBenefitP1: "Access to our extensive market knowledge and resources.",
+        partnerBenefitP2: "A collaborative approach that prioritizes transparency and shared objectives.",
+        partnerBenefitP3: "Commitment to delivering high-quality projects that reflect our dedication to sustainability and innovation.",
+        partnerBenefitSummary: "If you are interested in exploring partnership opportunities with Eishi Property Holdings, please reach out to us at eishiproperties@gmail.com. Together, we can turn visionary concepts into reality, driving progress and prosperity in the Philippine real estate landscape.",
     },
     Japanese: {
         home: "ホーム",
@@ -262,7 +267,11 @@ export default {
         当社の CSR 活動は、持続可能な取り組みの推進、地域社会の支援、住民の生活の
         質の向上に焦点を当てています。
         環境保護と社会的責任を優先するコラボレーションを通じて、私たちは地域社会の発
-        展という広範な目標に貢献することを目指しています。`
-
+        展という広範な目標に貢献することを目指しています。`,
+        "partnerBenefitTitle": "Eishiとの提携のメリット：",
+        "partnerBenefitP1": "当社の豊富な市場知識とリソースへのアクセス。",
+        "partnerBenefitP2": "透明性と共通の目標を重視した協働アプローチ。",
+        "partnerBenefitP3": "持続可能性と革新性への取り組みを反映した高品質なプロジェクトの提供に対するコミットメント。",
+        "partnerBenefitSummary": "Eishi Property Holdingsとの提携の可能性についてご興味がある方は、eishiproperties@gmail.com までご連絡ください。共に、先見的なコンセプトを現実のものとし、フィリピンの不動産業界の発展と繁栄を推進していきましょう。",
     },
 };

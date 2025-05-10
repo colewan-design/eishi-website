@@ -78,6 +78,28 @@
             </v-col>
         </v-row>
     </v-container>
+    <v-img gradient="to top, rgba(0, 0, 0, 0.8), rgba(50, 50, 50, 0.5)" src="/images/1732160495699.jpg" height="600"
+        class="oppenheimer-filter" cover>
+        <v-container class="fill-height d-flex align-center justify-center">
+            <v-row>
+                <v-col cols="10" class="mx-auto">
+                    <div class="text-white">
+                        <h2 class="text-h4 mb-4">{{ t.partnerBenefitTitle }}</h2>
+                        <v-container class="ml-10 text-body-1">
+                            <ul>
+                                <li>{{ t.partnerBenefitP1 }}</li>
+                                <li>{{ t.partnerBenefitP2 }}</li>
+                                <li>{{ t.partnerBenefitP3 }}</li>
+                            </ul>
+                        </v-container>
+                        <p class="text-body-1">
+                            {{ t.partnerBenefitSummary }}
+                        </p>
+                    </div>
+                </v-col>
+            </v-row>
+        </v-container>
+    </v-img>
 </template>
 
 <script>

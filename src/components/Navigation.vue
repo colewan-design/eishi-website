@@ -55,38 +55,45 @@
 
                 <!-- Mobile Hamburger -->
                 <v-col cols="6" class="d-flex d-md-none justify-end">
-                    <v-menu transition="scale-transition" offset-y>
-                        <template v-slot:activator="{ props }">
-                            <v-btn icon v-bind="props">
-                                <v-icon>mdi-menu</v-icon>
+                    <v-btn icon @click="menuOpen = true">
+                        <v-icon>mdi-menu</v-icon>
+                    </v-btn>
+                </v-col>
+
+                <v-dialog v-model="menuOpen" fullscreen transition="dialog-bottom-transition">
+                    <v-card>
+                        <v-toolbar dense flat>
+                            <v-spacer></v-spacer>
+                            <v-btn icon @click="menuOpen = false">
+                                <v-icon>mdi-close</v-icon>
                             </v-btn>
-                        </template>
+                        </v-toolbar>
 
                         <v-list>
-                            <v-list-item to="/" tag="router-link">
+                            <v-list-item to="/" tag="router-link" @click="menuOpen = false">
                                 <v-list-item-title>{{ t.home }}</v-list-item-title>
                             </v-list-item>
-                            <v-list-item to="/about" tag="router-link">
+                            <v-list-item to="/about" tag="router-link" @click="menuOpen = false">
                                 <v-list-item-title>{{ t.about }}</v-list-item-title>
                             </v-list-item>
-                            <v-list-item to="/contact" tag="router-link">
+                            <v-list-item to="/contact" tag="router-link" @click="menuOpen = false">
                                 <v-list-item-title>{{ t.contact }}</v-list-item-title>
                             </v-list-item>
-                            <v-list-item to="/business_holdings" tag="router-link">
+                            <v-list-item to="/business_holdings" tag="router-link" @click="menuOpen = false">
                                 <v-list-item-title>{{ t.business }}</v-list-item-title>
                             </v-list-item>
-                            <v-list-item to="/partnership_opportunities" tag="router-link">
+                            <v-list-item to="/partnership_opportunities" tag="router-link" @click="menuOpen = false">
                                 <v-list-item-title>{{ t.partnership }}</v-list-item-title>
                             </v-list-item>
-                            <v-list-item @click="changeLanguage('English')">
+                            <v-list-item @click="() => { changeLanguage('English'); menuOpen = false }">
                                 <v-list-item-title>English</v-list-item-title>
                             </v-list-item>
-                            <v-list-item @click="changeLanguage('Japanese')">
+                            <v-list-item @click="() => { changeLanguage('Japanese'); menuOpen = false }">
                                 <v-list-item-title>日本語</v-list-item-title>
                             </v-list-item>
                         </v-list>
-                    </v-menu>
-                </v-col>
+                    </v-card>
+                </v-dialog>
             </v-row>
         </v-container>
     </v-app-bar>
@@ -108,8 +115,16 @@ export default {
         color: String,
         flat: Boolean,
     },
+    data() {
+        return {
+            menuOpen: false,
+        };
+    },
     computed: {
         ...mapState(useLanguageStore, ['selectedLanguage', 't']),
+    },
+    mounted() {
+        console.log(this.$vuetify.display.mobile)
     },
     methods: {
         ...mapActions(useLanguageStore, ['changeLanguage']),

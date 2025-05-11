@@ -54,9 +54,26 @@
 
   </div>
   <div class="bg-grey-lighten-4">
-    <v-container class="pt-10 mb-10" fluid>
+    <v-container class="pt-10 mb-10" fluid v-if="!isMobileView">
       <v-row>
         <v-col class="mx-auto" cols="9">
+          <v-card class="mx-auto ma-2 " variant="text">
+            <span class="text-body-1" style="line-height: 2;">
+              <p class="mb-5">
+                {{ t.homeParagraph1 }}
+              </p>
+              <p>
+                {{ t.homeParagraph2 }}
+              </p>
+            </span>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+
+    <v-container class="pt-10 mb-10" fluid v-if="isMobileView">
+      <v-row>
+        <v-col>
           <v-card class="mx-auto ma-2 " variant="text">
             <span class="text-body-1" style="line-height: 2;">
               <p class="mb-5">
@@ -104,19 +121,23 @@
 
   <!-- mobile view cards -->
   <v-img gradient="to top, rgba(0, 0, 0, 0.8), rgba(50, 50, 50, 0.5)" height="600" v-if="isMobileView"
-    v-for="(feature, i) in business_holdings" :src="feature.img" height-sm="400" height-xs="300"
-    class="oppenheimer-filter" cover>
+    v-for="(feature, i) in business_holdings" :src="feature.img" height-sm="400" height-xs="300" cover>
     <v-container class="fill-height d-flex align-center justify-center">
       <div class="text-center text-white">
         <h2 class="text-h4 mb-4"> {{ t[feature.title] }}</h2>
       </div>
     </v-container>
+    <template v-slot:placeholder>
+      <v-row align="center" class="fill-height ma-0" justify="center">
+        <v-progress-circular color="grey-lighten-5" indeterminate></v-progress-circular>
+      </v-row>
+    </template>
   </v-img>
 
   <v-container>
     <v-row>
 
-      <v-btn size="x-large" class="mx-auto mt-5" color="primary" rounded="lg">
+      <v-btn size="large" class="mx-auto mt-5" color="primary" rounded="xl">
         <RouterLink to="/business_holdings"
           class="mx-2 text-decoration-none text-white font-weight-bold text-capitalize">
           {{ t.browseBusiness }}

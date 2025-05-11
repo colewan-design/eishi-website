@@ -24,7 +24,7 @@
         <!-- Call to Action -->
         <v-row>
             <v-col class="text-center mt-10 mb-10">
-                <v-btn size="x-large" color="primary" rounded="lg">
+                <v-btn size="large" color="primary" rounded="xl">
                     {{ t.becomePartner }}
                 </v-btn>
             </v-col>

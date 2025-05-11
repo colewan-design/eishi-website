@@ -120,19 +120,24 @@
   </v-container>
 
   <!-- mobile view cards -->
-  <v-img gradient="to top, rgba(0, 0, 0, 0.8), rgba(50, 50, 50, 0.5)" height="600" v-if="isMobileView"
-    v-for="(feature, i) in business_holdings" :src="feature.img" height-sm="400" height-xs="300" cover>
-    <v-container class="fill-height d-flex align-center justify-center">
-      <div class="text-center text-white">
-        <h2 class="text-h4 mb-4"> {{ t[feature.title] }}</h2>
-      </div>
-    </v-container>
-    <template v-slot:placeholder>
-      <v-row align="center" class="fill-height ma-0" justify="center">
-        <v-progress-circular color="grey-lighten-5" indeterminate></v-progress-circular>
-      </v-row>
-    </template>
-  </v-img>
+  <template v-for="(feature, i) in business_holdings" :key="i">
+    <transition :name="i % 2 === 0 ? 'scroll-x-transition' : 'scroll-x-reverse-transition'" appear>
+      <v-img v-if="isMobileView" :src="feature.img" cover height="600"
+        gradient="to top, rgba(0, 0, 0, 0.8), rgba(50, 50, 50, 0.5)">
+        <v-container class="fill-height d-flex align-center justify-center">
+          <div class="text-center text-white">
+            <h2 class="text-h4 mb-4"> {{ t[feature.title] }}</h2>
+          </div>
+        </v-container>
+        <template v-slot:placeholder>
+          <v-row align="center" class="fill-height ma-0" justify="center">
+            <v-progress-circular color="grey-lighten-5" indeterminate></v-progress-circular>
+          </v-row>
+        </template>
+      </v-img>
+    </transition>
+  </template>
+
 
   <v-container>
     <v-row>

@@ -22,6 +22,16 @@
   background: rgba(0, 0, 0, 0.4);
   padding: 1rem;
 }
+
+.full-width-card {
+  margin: 0;
+  padding: 0;
+}
+
+.full-width-img {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
 </style>
 <template>
   <div class="hero-container position-relative">
@@ -87,36 +97,32 @@
               </template>
             </v-hover>
           </v-col>
-          <!-- mobile view cards -->
-
-          <v-col cols="12" v-for="(feature, i) in business_holdings" :key="'mobile-' + i" v-if="isMobileView"
-            class="pr-0 pl-0 mr-0 ml-0">
-            <v-card flat>
-              <v-img :src="feature.img" height="300px" cover alt="test">
-                <div class="fill-height bottom-gradient"></div>
-              </v-img>
-              <v-card-text class="text-center py-4">
-                <h3 class="font-weight-medium text-primary text-h6">
-                  {{ t[feature.title] }}
-                </h3>
-              </v-card-text>
-            </v-card>
-          </v-col>
-
-
-
-        </v-row>
-        <v-row>
-
-          <v-btn size="x-large" class="mx-auto mt-5" color="primary" rounded="lg">
-            <RouterLink to="/business_holdings"
-              class="mx-2 text-decoration-none text-white font-weight-bold text-capitalize">
-              {{ t.browseBusiness }}
-            </RouterLink>
-          </v-btn>
-
         </v-row>
       </v-col>
+    </v-row>
+  </v-container>
+
+  <!-- mobile view cards -->
+  <v-img gradient="to top, rgba(0, 0, 0, 0.8), rgba(50, 50, 50, 0.5)" height="600" v-if="isMobileView"
+    v-for="(feature, i) in business_holdings" :src="feature.img" height-sm="400" height-xs="300"
+    class="oppenheimer-filter" cover>
+    <v-container class="fill-height d-flex align-center justify-center">
+      <div class="text-center text-white">
+        <h2 class="text-h4 mb-4"> {{ t[feature.title] }}</h2>
+      </div>
+    </v-container>
+  </v-img>
+
+  <v-container>
+    <v-row>
+
+      <v-btn size="x-large" class="mx-auto mt-5" color="primary" rounded="lg">
+        <RouterLink to="/business_holdings"
+          class="mx-2 text-decoration-none text-white font-weight-bold text-capitalize">
+          {{ t.browseBusiness }}
+        </RouterLink>
+      </v-btn>
+
     </v-row>
   </v-container>
 

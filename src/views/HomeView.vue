@@ -70,7 +70,9 @@
             <h1 class="font-weight-light display-2">{{ t.business }}</h1>
 
           </v-col>
-          <v-col cols="12" sm="4" class="text-center pa-10" v-for="(feature, i) in business_holdings" :key="i">
+          <!-- desktop cards -->
+          <v-col cols="12" sm="4" class="text-center pa-10" v-for="(feature, i) in business_holdings" :key="i"
+            v-if="!isMobileView">
             <v-hover>
               <template v-slot:default="{ isHovering, props }">
                 <v-card class="card" shaped :elevation="isHovering ? 10 : 4" rounded="lg">
@@ -85,6 +87,23 @@
               </template>
             </v-hover>
           </v-col>
+          <!-- mobile view cards -->
+
+          <v-col cols="12" v-for="(feature, i) in business_holdings" :key="'mobile-' + i" v-if="isMobileView"
+            class="pr-0 pl-0 mr-0 ml-0">
+            <v-card flat>
+              <v-img :src="feature.img" height="300px" cover alt="test">
+                <div class="fill-height bottom-gradient"></div>
+              </v-img>
+              <v-card-text class="text-center py-4">
+                <h3 class="font-weight-medium text-primary text-h6">
+                  {{ t[feature.title] }}
+                </h3>
+              </v-card-text>
+            </v-card>
+          </v-col>
+
+
 
         </v-row>
         <v-row>
@@ -125,6 +144,7 @@ export default {
   data() {
 
     return {
+      isMobileView: false,
       business_holdings: [
         {
           img: "/eishi/Batangas Poultry Farm.jpg",
@@ -153,7 +173,17 @@ export default {
   computed: {
     ...mapState(useLanguageStore, ['t']),
   },
+  mounted() {
+    this.checkMobileView(); // check on initial load
+    window.addEventListener('resize', this.checkMobileView); // attach resize listener
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.checkMobileView); // clean up
+  },
   methods: {
+    checkMobileView() {
+      this.isMobileView = this.$vuetify.display.mobile;
+    },
   },
 };
 </script>

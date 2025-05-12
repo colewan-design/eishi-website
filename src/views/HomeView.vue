@@ -122,7 +122,7 @@
   <!-- mobile view cards -->
   <template v-for="(feature, i) in business_holdings" :key="i">
     <transition :name="i % 2 === 0 ? 'scroll-x-transition' : 'scroll-x-reverse-transition'" appear>
-      <v-img v-if="isMobileView" :src="feature.img" cover height="600"
+      <v-img v-if="isMobileView" :src="feature.img" cover height="600" class="mb-2"
         gradient="to top, rgba(0, 0, 0, 0.8), rgba(50, 50, 50, 0.5)">
         <v-container class="fill-height d-flex align-center justify-center">
           <div class="text-center text-white">

@@ -17,7 +17,6 @@
             </v-row>
         </v-container>
     </div>
-
     <v-container>
         <!-- Business Partners -->
         <v-row class="py-16" align="center">
@@ -25,13 +24,15 @@
                 <h2 class="text-h4 text-primary mb-4">{{ t.forBusinessPartners }}</h2>
                 <p class="text-body-1 text-justify">{{ t.partnerP1 }}</p>
             </v-col>
-            <v-col cols="12" md="6">
+            <v-col cols="12" md="6" v-if="!isMobileView">
                 <v-img src="/images/1732160491688.jpg" height="300" cover class="rounded-lg" />
             </v-col>
         </v-row>
+    </v-container>
 
-        <v-divider class="my-4" />
+    <v-img v-if="isMobileView" src="/images/1732160491688.jpg" height="400" cover />
 
+    <v-container>
         <!-- Government Collaboration -->
         <v-row class="py-16" align="center">
             <v-col cols="12" md="6" order-md="2" class="mb-6 mb-md-0">
@@ -39,12 +40,12 @@
                 <p class="text-body-1 text-justify">{{ t.governmentCollabP1 }}</p>
             </v-col>
             <v-col cols="12" md="6" order-md="1">
-                <v-img src="/images/1732160494493.jpg" height="300" cover class="rounded-lg" />
+                <v-img v-if="!isMobileView" src="/images/1732160494493.jpg" height="300" cover class="rounded-lg" />
             </v-col>
         </v-row>
-
-        <v-divider class="my-4" />
-
+    </v-container>
+    <v-img v-if="isMobileView" src="/images/1732160494493.jpg" height="400" cover />
+    <v-container>
         <!-- CSR -->
         <v-row class="py-16" align="center">
             <v-col cols="12" md="6" class="mb-6 mb-md-0">
@@ -52,11 +53,11 @@
                 <p class="text-body-1 text-justify">{{ t.corporateSocialP1 }}</p>
             </v-col>
             <v-col cols="12" md="6">
-                <v-img src="/images/1732160497759.jpg" height="300" cover class="rounded-lg" />
+                <v-img v-if="!isMobileView" src="/images/1732160497759.jpg" height="300" cover class="rounded-lg" />
             </v-col>
         </v-row>
     </v-container>
-
+    <v-img v-if="isMobileView" src="/images/1732160497759.jpg" height="400" cover />
     <!-- Parallax Section -->
     <v-img src="/images/1732160495699.jpg" height="600" gradient="to top, rgba(0, 0, 0, 0.8), rgba(50, 50, 50, 0.5)"
         cover>
@@ -79,13 +80,30 @@
 </template>
 
 <script>
-import { mapState } from 'pinia'
-import { useLanguageStore } from '@/stores/languageStore'
-
+import { mapState } from 'pinia';
+import { useLanguageStore } from '@/stores/languageStore';
 export default {
-    name: 'PartnershipSection',
+    name: 'HomeView',
+    data() {
+
+        return {
+            isMobileView: false,
+        };
+    },
     computed: {
         ...mapState(useLanguageStore, ['t']),
     },
-}
+    mounted() {
+        this.checkMobileView(); // check on initial load
+        window.addEventListener('resize', this.checkMobileView); // attach resize listener
+    },
+    beforeUnmount() {
+        window.removeEventListener('resize', this.checkMobileView); // clean up
+    },
+    methods: {
+        checkMobileView() {
+            this.isMobileView = this.$vuetify.display.mobile;
+        },
+    },
+};
 </script>

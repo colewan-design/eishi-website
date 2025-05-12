@@ -5,10 +5,20 @@
 
   <div class="bg-grey-lighten-4">
     <v-img v-if="isMobileView" src="/images/1732160495699.jpg" cover height="500" height-sm="400" height-xs="300"
-      class="mt-5" />
+      class="mt-5">
+      <template v-slot:placeholder>
+        <v-row align="center" class="fill-height ma-0" justify="center">
+          <v-progress-circular color="grey-lighten-5" indeterminate></v-progress-circular>
+        </v-row>
+      </template></v-img>
     <v-container class="pt-0 mt-0">
       <v-img v-if="!isMobileView" src="/images/1732160495699.jpg" cover height="500" height-sm="400" height-xs="300"
-        class="mt-5" />
+        class="mt-5">
+        <template v-slot:placeholder>
+          <v-row align="center" class="fill-height ma-0" justify="center">
+            <v-progress-circular color="grey-lighten-5" indeterminate></v-progress-circular>
+          </v-row>
+        </template></v-img>
       <p class="mt-10 mb-10 text-body-1">
         {{ t.aboutP1 }}
       </p>
@@ -32,11 +42,23 @@
 
 
       <v-col v-if="!isMobileView" cols="12" md="6">
-        <v-img src="/images/1732160499420.jpg" height="300" height-sm="250" height-xs="200" cover />
+        <v-img src="/images/1732160499420.jpg" height="300" height-sm="250" height-xs="200" cover>
+          <template v-slot:placeholder>
+            <v-row align="center" class="fill-height ma-0" justify="center">
+              <v-progress-circular color="grey-lighten-5" indeterminate></v-progress-circular>
+            </v-row>
+          </template>
+        </v-img>
       </v-col>
     </v-row>
   </v-container>
-  <v-img v-if="isMobileView" src="/images/1732160499420.jpg" height="300" cover />
+  <v-img v-if="isMobileView" src="/images/1732160499420.jpg" height="300" cover>
+    <template v-slot:placeholder>
+      <v-row align="center" class="fill-height ma-0" justify="center">
+        <v-progress-circular color="grey-lighten-5" indeterminate></v-progress-circular>
+      </v-row>
+    </template>
+  </v-img>
 
   <div class="bg-primary">
     <v-container class="py-16">
@@ -65,6 +87,11 @@
         </p>
       </div>
     </v-container>
+    <template v-slot:placeholder>
+      <v-row align="center" class="fill-height ma-0" justify="center">
+        <v-progress-circular color="grey-lighten-5" indeterminate></v-progress-circular>
+      </v-row>
+    </template>
   </v-img>
 </template>
 

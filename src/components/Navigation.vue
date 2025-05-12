@@ -60,7 +60,7 @@
                     </v-btn>
                 </v-col>
 
-                <v-dialog v-model="menuOpen" fullscreen transition="dialog-bottom-transition">
+                <v-dialog v-model="menuOpen" fullscreen transition="slide-x-reverse-transition">
                     <v-card>
                         <v-toolbar dense flat>
                             <v-spacer></v-spacer>

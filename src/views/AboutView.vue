@@ -4,8 +4,11 @@
   </v-container>
 
   <div class="bg-grey-lighten-4">
+    <v-img v-if="isMobileView" src="/images/1732160495699.jpg" cover height="500" height-sm="400" height-xs="300"
+      class="mt-5" />
     <v-container class="pt-0 mt-0">
-      <v-img src="/images/1732160495699.jpg" cover height="500" height-sm="400" height-xs="300" class="mt-5" />
+      <v-img v-if="!isMobileView" src="/images/1732160495699.jpg" cover height="500" height-sm="400" height-xs="300"
+        class="mt-5" />
       <p class="mt-10 mb-10 text-body-1">
         {{ t.aboutP1 }}
       </p>
@@ -26,11 +29,14 @@
         </p>
       </v-col>
 
-      <v-col cols="12" md="6">
+
+
+      <v-col v-if="!isMobileView" cols="12" md="6">
         <v-img src="/images/1732160499420.jpg" height="300" height-sm="250" height-xs="200" cover />
       </v-col>
     </v-row>
   </v-container>
+  <v-img v-if="isMobileView" src="/images/1732160499420.jpg" height="300" cover />
 
   <div class="bg-primary">
     <v-container class="py-16">
@@ -62,23 +68,31 @@
   </v-img>
 </template>
 
-<style scoped>
-.oppenheimer-filter::v-deep img {
-  filter: brightness(0.6) contrast(1.2) saturate(0.7) sepia(0.2) hue-rotate(-20deg);
-  object-fit: cover;
-}
-</style>
-
-
 <script>
 import { mapState } from 'pinia';
 import { useLanguageStore } from '@/stores/languageStore';
 export default {
-  name: 'AboutView',
+  name: 'HomeView',
+  data() {
+
+    return {
+      isMobileView: false,
+    };
+  },
   computed: {
     ...mapState(useLanguageStore, ['t']),
   },
+  mounted() {
+    this.checkMobileView(); // check on initial load
+    window.addEventListener('resize', this.checkMobileView); // attach resize listener
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.checkMobileView); // clean up
+  },
   methods: {
+    checkMobileView() {
+      this.isMobileView = this.$vuetify.display.mobile;
+    },
   },
 };
 </script>

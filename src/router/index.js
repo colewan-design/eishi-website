@@ -29,6 +29,11 @@ const router = createRouter({
       name: 'partnership_opportunities',
       component: () => import('../views/PartnershipOpportunities.vue'),
     },
+    {
+      path: '/business_holdings/batangas/poultry_farm',
+      name: 'batangas_poultry_farm',
+      component: () => import('../views/business_holdings/batangas_poultry_farm.vue'),
+    },
   ],
   scrollBehavior(to, from, savedPosition) {
     // Always scroll to top

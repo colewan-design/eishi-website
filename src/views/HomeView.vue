@@ -98,11 +98,10 @@
 
           </v-col>
           <!-- desktop cards -->
-          <v-col cols="12" sm="4" class="text-center pa-10" v-for="(feature, i) in business_holdings" :key="i"
-            v-if="!isMobileView">
+          <v-col class="text-center" v-for="(feature, i) in business_holdings" :key="i" v-if="!isMobileView">
             <v-hover>
               <template v-slot:default="{ isHovering, props }">
-                <v-card class="card" shaped :elevation="isHovering ? 10 : 4" rounded="lg">
+                <v-card :to="feature.link" class="card" shaped :elevation="isHovering ? 10 : 4" rounded="lg">
                   <v-img v-bind="props" :src="feature.img" height="300px" cover :class="isHovering ? 'zoom-efect' : ''">
                     <div class="fill-height bottom-gradient"></div>
                   </v-img>
@@ -139,19 +138,6 @@
   </template>
 
 
-  <v-container>
-    <v-row>
-
-      <v-btn size="large" class="mx-auto mt-5" color="primary" rounded="xl">
-        <RouterLink to="/business_holdings"
-          class="mx-2 text-decoration-none text-white font-weight-bold text-capitalize">
-          {{ t.browseBusiness }}
-        </RouterLink>
-      </v-btn>
-
-    </v-row>
-  </v-container>
-
   <v-container class="mt-10 mb-10" fluid>
     <v-row>
       <v-col>
@@ -181,6 +167,7 @@ export default {
         {
           img: "/eishi/Batangas Poultry Farm.jpg",
           title: "batangasPoultry",
+          link: "/business_holdings/batangas/poultry_farm",
         },
         {
           img: "/eishi/Pangasinan Farm.jpg",

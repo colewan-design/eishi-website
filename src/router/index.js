@@ -34,6 +34,26 @@ const router = createRouter({
       name: 'batangas_poultry_farm',
       component: () => import('../views/business_holdings/batangas_poultry_farm.vue'),
     },
+    {
+      path: '/business_holdings/assigned_properties',
+      name: 'assigned_properties',
+      component: () => import('../views/business_holdings/assigned_properties.vue'),
+    },
+    {
+      path: '/business_holdings/cebu_condominium',
+      name: 'cebu_condominium',
+      component: () => import('../views/business_holdings/cebu_condominium.vue'),
+    },
+    {
+      path: '/business_holdings/kalinga_residential',
+      name: 'kalinga_residential',
+      component: () => import('../views/business_holdings/kalinga_residential.vue'),
+    },
+    {
+      path: '/business_holdings/pangasinan_farm',
+      name: 'pangasinan_farm',
+      component: () => import('../views/business_holdings/pangasinan_farm.vue'),
+    },
   ],
   scrollBehavior(to, from, savedPosition) {
     // Always scroll to top

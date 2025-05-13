@@ -177,18 +177,22 @@ export default {
         {
           img: "/eishi/Pangasinan Farm.jpg",
           title: "pangasinanFarm",
+          link: "/business_holdings/pangasinan_farm",
         },
         {
           img: "/eishi/1732160486501.jpg",
           title: "assignedProperties",
+          link: "/business_holdings/assigned_properties",
         },
         {
           img: "/eishi/Solinea3.jpg",
           title: "kalingaResidential",
+          link: "/business_holdings/kalinga_residential",
         },
         {
           img: "/eishi/DJI_0598-min.jpg",
           title: "cebuCondo",
+          link: "/business_holdings/cebu_condominium",
         },
       ],
 

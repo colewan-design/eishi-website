@@ -44,7 +44,7 @@
                 <v-row align="center" justify="space-around">
 
                     <!-- desktop cards -->
-                    <v-col cols="4" class="text-center" v-for="(feature, i) in business_holdings" :key="i"
+                    <v-col class="text-center" v-for="(feature, i) in business_holdings" :key="i"
                         v-if="!isMobileView">
                         <v-hover>
                             <template v-slot:default="{ isHovering, props }">

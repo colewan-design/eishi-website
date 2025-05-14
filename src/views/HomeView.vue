@@ -1,7 +1,7 @@
 <style scoped>
 .hero-container {
   width: 100%;
-  height: 100vh;
+  height: 50vh;
   overflow: hidden;
   position: relative;
 }

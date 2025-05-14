@@ -1,8 +1,4 @@
 <template>
-  <v-container>
-    <span class="font-weight-light text-h3 text-primary">{{ t.whoWeAre }}</span>
-  </v-container>
-
   <div class="bg-grey-lighten-4">
     <v-img v-if="isMobileView" src="/images/1732160495699.jpg" cover height="500" height-sm="400" height-xs="300"
       class="mt-5">
@@ -11,23 +7,33 @@
           <v-progress-circular color="grey-lighten-5" indeterminate></v-progress-circular>
         </v-row>
       </template></v-img>
-    <v-container class="pt-0 mt-0">
-      <v-img v-if="!isMobileView" src="/images/1732160495699.jpg" cover height="500" height-sm="400" height-xs="300"
+    <div>
+      <v-img v-if="!isMobileView" src="/images/1732160495699.jpg" cover height="400" height-sm="400" height-xs="300"
         class="mt-5">
         <template v-slot:placeholder>
           <v-row align="center" class="fill-height ma-0" justify="center">
             <v-progress-circular color="grey-lighten-5" indeterminate></v-progress-circular>
           </v-row>
-        </template></v-img>
-      <p class="mt-10 mb-10 text-body-1">
-        {{ t.aboutP1 }}
-      </p>
+        </template>
+      </v-img>
+
+    </div>
+  </div>
+  <div class="bg-grey-lighten-4">
+    <v-container>
+      <v-row>
+        <v-col cols="10" class="mx-auto">
+          <p class="mt-10 text-body-1">
+            {{ t.aboutP1 }}
+          </p>
+        </v-col>
+      </v-row>
     </v-container>
   </div>
 
   <v-container class="py-16">
     <v-row>
-      <v-col cols="12" md="6">
+      <v-col cols="12" md="4" class="mx-auto">
         <span class="font-weight-light text-h4 text-primary">
           {{ t.companyOverview }}
         </span>
@@ -41,7 +47,7 @@
 
 
 
-      <v-col v-if="!isMobileView" cols="12" md="6">
+      <v-col v-if="!isMobileView" cols="12" md="4" class="mx-auto">
         <v-img src="/images/1732160499420.jpg" height="300" height-sm="250" height-xs="200" cover>
           <template v-slot:placeholder>
             <v-row align="center" class="fill-height ma-0" justify="center">
@@ -63,12 +69,12 @@
   <div class="bg-primary">
     <v-container class="py-16">
       <v-row>
-        <v-col cols="12" md="6" class="text-md-right text-center mb-6 mb-md-0">
+        <v-col cols="12" md="4" class="mx-auto text-md-right text-center mb-6 mb-md-0">
           <span class="mr-md-10 text-h3 text-h4-sm text-h5-xs">
             {{ t.missionVision }}
           </span>
         </v-col>
-        <v-col cols="12" md="6">
+        <v-col cols="12" md="4" class="mx-auto">
           <span class="text-body-1 text-justify">
             {{ t.aboutP4 }}
           </span>

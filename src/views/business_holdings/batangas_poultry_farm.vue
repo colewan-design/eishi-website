@@ -3,10 +3,11 @@
         <v-row>
             <!-- mobile view -->
             <v-col cols="12" v-if="isMobileView">
-                <v-carousel continuous cycle v-model="selectedIndex" hide-delimiters :show-arrows="false" height="400"
-                    class="rounded-lg">
+                <v-carousel continuous cycle v-model="selectedIndex" hide-delimiters :show-arrows="false" height="350"
+                    class="rounded-lg mobile-carousel">
                     <v-carousel-item v-for="(img, index) in images" :key="index" :src="img" class="main-image" cover />
                 </v-carousel>
+
 
                 <!-- Thumbnails -->
                 <v-row class="mt-4 d-flex flex-nowrap overflow-auto" dense no-gutters style="gap: 8px;">
@@ -191,7 +192,7 @@ export default {
 /* Scoped CSS */
 @media (max-width: 600px) {
     .main-image {
-        height: 80vw !important;
+        height: 100vw !important;
     }
 
     .spaced-paragraphs p {

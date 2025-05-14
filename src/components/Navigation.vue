@@ -79,18 +79,45 @@
                             <v-list-item to="/contact" tag="router-link" @click="menuOpen = false">
                                 <v-list-item-title>{{ t.contact }}</v-list-item-title>
                             </v-list-item>
-                            <v-list-item to="/business_holdings" tag="router-link" @click="menuOpen = false">
-                                <v-list-item-title>{{ t.business }}</v-list-item-title>
-                            </v-list-item>
+                            <v-list-group>
+                                <template v-slot:activator="{ props }">
+                                    <v-list-item v-bind="props" color="primary" title="Business/Holdings">
+
+                                    </v-list-item>
+                                </template>
+                                <v-list-item>
+                                    <v-list-item-title>{{ t.batangasPoultry }}</v-list-item-title>
+                                </v-list-item>
+                                <v-list-item>
+                                    <v-list-item-title>{{ t.pangasinanFarm }}</v-list-item-title>
+                                </v-list-item>
+                                <v-list-item>
+                                    <v-list-item-title>{{ t.assignedProperties }}</v-list-item-title>
+                                </v-list-item>
+                                <v-list-item>
+                                    <v-list-item-title>{{ t.cebuCondo }}</v-list-item-title>
+                                </v-list-item>
+                                <v-list-item>
+                                    <v-list-item-title>{{ t.kalingaResidential }}</v-list-item-title>
+                                </v-list-item>
+                            </v-list-group>
                             <v-list-item to="/partnership_opportunities" tag="router-link" @click="menuOpen = false">
                                 <v-list-item-title>{{ t.partnership }}</v-list-item-title>
                             </v-list-item>
-                            <v-list-item @click="() => { changeLanguage('English'); menuOpen = false }">
-                                <v-list-item-title>English</v-list-item-title>
-                            </v-list-item>
-                            <v-list-item @click="() => { changeLanguage('Japanese'); menuOpen = false }">
-                                <v-list-item-title>日本語</v-list-item-title>
-                            </v-list-item>
+                            <v-list-group>
+                                <template v-slot:activator="{ props }">
+                                    <v-list-item v-bind="props" color="primary" title="Language">
+
+                                    </v-list-item>
+                                </template>
+                                <v-list-item @click="() => { changeLanguage('English'); menuOpen = false }">
+                                    <v-list-item-title>English</v-list-item-title>
+                                </v-list-item>
+                                <v-list-item @click="() => { changeLanguage('Japanese'); menuOpen = false }">
+                                    <v-list-item-title>日本語</v-list-item-title>
+                                </v-list-item>
+                            </v-list-group>
+
                         </v-list>
                     </v-card>
                 </v-dialog>

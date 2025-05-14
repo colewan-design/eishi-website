@@ -85,19 +85,19 @@
 
                                     </v-list-item>
                                 </template>
-                                <v-list-item>
+                                <v-list-item @click="menuOpen = false" to="/business_holdings/batangas/poultry_farm">
                                     <v-list-item-title>{{ t.batangasPoultry }}</v-list-item-title>
                                 </v-list-item>
-                                <v-list-item>
+                                <v-list-item @click="menuOpen = false" to="/business_holdings/pangasinan_farm">
                                     <v-list-item-title>{{ t.pangasinanFarm }}</v-list-item-title>
                                 </v-list-item>
-                                <v-list-item>
+                                <v-list-item @click="menuOpen = false" to="/business_holdings/assigned_properties">
                                     <v-list-item-title>{{ t.assignedProperties }}</v-list-item-title>
                                 </v-list-item>
-                                <v-list-item>
+                                <v-list-item @click="menuOpen = false" to="/business_holdings/cebu_condominium">
                                     <v-list-item-title>{{ t.cebuCondo }}</v-list-item-title>
                                 </v-list-item>
-                                <v-list-item>
+                                <v-list-item @click="menuOpen = false" to="/business_holdings/kalinga_residential">
                                     <v-list-item-title>{{ t.kalingaResidential }}</v-list-item-title>
                                 </v-list-item>
                             </v-list-group>

@@ -44,11 +44,10 @@
                 <v-row align="center" justify="space-around">
 
                     <!-- desktop cards -->
-                    <v-col class="text-center" v-for="(feature, i) in business_holdings" :key="i"
-                        v-if="!isMobileView">
+                    <v-col class="text-center" v-for="(feature, i) in business_holdings" :key="i" v-if="!isMobileView">
                         <v-hover>
                             <template v-slot:default="{ isHovering, props }">
-                                <v-card :to="feature.link" class="card" shaped :elevation="isHovering ? 10 : 4"
+                                <v-card :to="feature.link" class="card" shaped :elevation="isHovering ? 10 : 1"
                                     rounded="lg">
                                     <v-img v-bind="props" :src="feature.img" height="100" cover
                                         :class="isHovering ? 'zoom-efect' : ''">
@@ -70,8 +69,8 @@
     <!-- mobile view cards -->
     <template v-for="(feature, i) in business_holdings" :key="i">
         <transition :name="i % 2 === 0 ? 'scroll-x-transition' : 'scroll-x-reverse-transition'" appear>
-            <v-card :to="feature.link" flat class="cursor-pointer ma-2">
-                <v-img v-if="isMobileView" :src="feature.img" cover height="600"
+            <v-card :to="feature.link" variant="text" class="cursor-pointer ma-2">
+                <v-img v-if="isMobileView" :src="feature.img" cover
                     gradient="to top, rgba(0, 0, 0, 0.8), rgba(50, 50, 50, 0.5)">
                     <v-container class="fill-height d-flex align-center justify-center">
                         <div class="text-center text-white">
@@ -171,7 +170,7 @@ export default {
 /* Scoped CSS */
 @media (max-width: 600px) {
     .main-image {
-        height: 60vw !important;
+        height: 80vw !important;
     }
 
     .spaced-paragraphs p {

@@ -11,24 +11,48 @@
 
                 <!-- Desktop Nav Links -->
                 <v-col md="7" class="d-none d-md-flex align-center justify-end">
-                    <RouterLink to="/" class="mx-2 text-decoration-none text-black font-weight-bold text-capitalize">
-                        <v-btn variant="plain">{{ t.home }}</v-btn>
+                    <RouterLink to="/">
+                        <v-btn class="mx-2 text-decoration-none text-black text-capitalize" variant="plain">{{ t.home
+                            }}</v-btn>
                     </RouterLink>
-                    <RouterLink to="/about"
-                        class="mx-2 text-decoration-none text-black font-weight-bold text-capitalize">
-                        <v-btn variant="plain">{{ t.about }}</v-btn>
+                    <RouterLink to="/about">
+                        <v-btn class="mx-2 text-decoration-none text-black text-capitalize" variant="plain">{{ t.about
+                            }}</v-btn>
                     </RouterLink>
-                    <router-link to="/contact"
-                        class="mx-2 text-decoration-none text-black font-weight-bold text-capitalize">
-                        <v-btn variant="plain">{{ t.contact }}</v-btn>
+                    <router-link to="/contact">
+                        <v-btn variant="plain" class="mx-2 text-decoration-none text-black text-capitalize">{{ t.contact
+                            }}</v-btn>
                     </router-link>
-                    <RouterLink to="/business_holdings"
-                        class="mx-2 text-decoration-none text-black font-weight-bold text-capitalize">
-                        <v-btn variant="plain">{{ t.business }}</v-btn>
-                    </RouterLink>
-                    <RouterLink to="/partnership_opportunities"
-                        class="mx-2 text-decoration-none text-black font-weight-bold text-capitalize">
-                        <v-btn variant="plain">{{ t.partnership }}</v-btn>
+
+                    <!-- Business/Holdings Menu -->
+                    <v-menu>
+                        <template v-slot:activator="{ props }">
+                            <v-btn variant="plain" color="primary" v-bind="props">
+                                <span class="text-decoration-none text-capitalize text-black">{{ t.business }}</span>
+                            </v-btn>
+                        </template>
+
+                        <v-list>
+                            <v-list-item to="/business_holdings/batangas/poultry_farm">
+                                <v-list-item-title>{{ t.batangasPoultry }}</v-list-item-title>
+                            </v-list-item>
+                            <v-list-item to="/business_holdings/pangasinan_farm">
+                                <v-list-item-title>{{ t.pangasinanFarm }}</v-list-item-title>
+                            </v-list-item>
+                            <v-list-item to="/business_holdings/assigned_properties">
+                                <v-list-item-title>{{ t.assignedProperties }}</v-list-item-title>
+                            </v-list-item>
+                            <v-list-item to="/business_holdings/cebu_condominium">
+                                <v-list-item-title>{{ t.cebuCondo }}</v-list-item-title>
+                            </v-list-item>
+                            <v-list-item to="/business_holdings/kalinga_residential">
+                                <v-list-item-title>{{ t.kalingaResidential }}</v-list-item-title>
+                            </v-list-item>
+                        </v-list>
+                    </v-menu>
+                    <RouterLink to="/partnership_opportunities">
+                        <v-btn class="mx-2 text-decoration-none text-black text-capitalize" variant="plain">{{
+                            t.partnership }}</v-btn>
                     </RouterLink>
 
                     <!-- Language Menu -->

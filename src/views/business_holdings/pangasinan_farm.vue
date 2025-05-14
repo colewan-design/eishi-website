@@ -3,9 +3,9 @@
         <v-row>
             <!-- mobile view -->
             <v-col cols="12" v-if="isMobileView">
-                <v-carousel continuous cycle v-model="selectedIndex" hide-delimiters height="400" :show-arrows="false"
+                <v-carousel continuous cycle v-model="selectedIndex" hide-delimiters :show-arrows="false" height="400"
                     class="rounded-lg">
-                    <v-carousel-item v-for="(img, index) in images" :key="index" :src="img" class="main-image" />
+                    <v-carousel-item v-for="(img, index) in images" :key="index" :src="img" class="main-image" cover />
                 </v-carousel>
 
                 <!-- Thumbnails -->

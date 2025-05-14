@@ -35,10 +35,10 @@
             <v-col cols="12" md="6" class="spaced-paragraphs">
                 <h2 class="text-h4 font-weight-bold">{{ t.batangasPoultry }}</h2>
                 <p class="text-body-1">Location: San Jose, Batangas, Philippines</p>
-                <p class="text-body-1">{{ t.batangasP1 }}</p>
-                <p class="text-body-1">{{ t.batangasP2 }}</p>
-                <p class="text-body-1">{{ t.batangasP3 }}</p>
-                <p class="text-body-1">{{ t.batangasP4 }}</p>
+                <p class="text-body-1 text-justify">{{ t.batangasP1 }}</p>
+                <p class="text-body-1 text-justify">{{ t.batangasP2 }}</p>
+                <p class="text-body-1 text-justify">{{ t.batangasP3 }}</p>
+                <p class="text-body-1 text-justify">{{ t.batangasP4 }}</p>
             </v-col>
         </v-row>
 

@@ -32,7 +32,7 @@
             <v-col cols="12" md="6" class="spaced-paragraphs">
                 <h2 class="text-h4 font-weight-bold"> {{ t.pangasinanFarm }}</h2>
                 <p class="text-body-1"> {{ t.pangasinanLocation }}</p>
-                <p class="text-body-1"> {{ t.pangasinanP1 }}</p>
+                <p class="text-body-1 text-justify"> {{ t.pangasinanP1 }}</p>
                 <p class="text-body-1 text-justify">
                     {{ t.pangasinanP2 }}
                 </p>

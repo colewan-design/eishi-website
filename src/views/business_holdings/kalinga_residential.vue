@@ -31,9 +31,9 @@
             <!-- Info Section -->
             <v-col cols="12" md="6" class="spaced-paragraphs">
                 <h2 class="text-h4 text-primary"> {{ t.residentialLands }}</h2>
-                <p class="text-body-1"> {{ t.residentialLocation }}</p>
-                <p class="text-body-1"> {{ t.residentialLandsP1 }}</p>
-                <p class="text-body-1"> {{ t.residentialLandsP2 }}</p>
+                <p class="text-body-1 text-justify"> {{ t.residentialLocation }}</p>
+                <p class="text-body-1 text-justify"> {{ t.residentialLandsP1 }}</p>
+                <p class="text-body-1 text-justify"> {{ t.residentialLandsP2 }}</p>
             </v-col>
         </v-row>
 

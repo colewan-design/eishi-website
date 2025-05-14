@@ -155,8 +155,8 @@
 </template>
 <style>
 .zoom-efect {
-  transform: scale(1.1);
-  transition: transform 0.5s ease;
+  transform: scale(1.8);
+  transition: transform 2s ease;
 }
 </style>
 <script>

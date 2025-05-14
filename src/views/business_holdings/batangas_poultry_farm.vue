@@ -19,20 +19,26 @@
                         <v-card variant="outlined" class="thumbnail-card"
                             :class="{ 'selected-thumbnail': img === selectedImage }">
                             <v-img :src="img" height="80" width="80" cover @click="selectImage(img)"
-                                style="cursor: pointer;"></v-img>
+                                style="cursor: pointer;">
+                                <template v-slot:placeholder>
+                                    <v-row align="center" class="fill-height ma-0" justify="center">
+                                        <v-progress-circular color="grey-lighten-5" indeterminate></v-progress-circular>
+                                    </v-row>
+                                </template>
+                            </v-img>
                         </v-card>
                     </div>
                 </v-row>
-
-
-
             </v-col>
 
             <!-- Info Section -->
             <v-col cols="12" md="6" class="spaced-paragraphs">
-                <h2 class="text-h4 text-primary">Batangas Tokyo Poultry Farm</h2>
+                <h2 class="text-h4 font-weight-bold">{{ t.batangasPoultry }}</h2>
                 <p class="text-body-1">Location: San Jose, Batangas, Philippines</p>
                 <p class="text-body-1">{{ t.batangasP1 }}</p>
+                <p class="text-body-1">{{ t.batangasP2 }}</p>
+                <p class="text-body-1">{{ t.batangasP3 }}</p>
+                <p class="text-body-1">{{ t.batangasP4 }}</p>
             </v-col>
         </v-row>
 
@@ -109,6 +115,7 @@ export default {
     },
     data() {
         return {
+            isMobileView: false,
             business_holdings: [
 
                 {
@@ -144,10 +151,19 @@ export default {
             modules: [Autoplay, Pagination, Navigation],
         };
     },
+
     mounted() {
-        this.selectedImage = this.images[0]; // Set default selected image
+        this.selectedImage = this.images[0];
+        this.checkMobileView(); // check on initial load
+        window.addEventListener('resize', this.checkMobileView); // attach resize listener
+    },
+    beforeUnmount() {
+        window.removeEventListener('resize', this.checkMobileView); // clean up
     },
     methods: {
+        checkMobileView() {
+            this.isMobileView = this.$vuetify.display.mobile;
+        },
         selectImage(img) {
             this.selectedImage = img;
         },
@@ -155,7 +171,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .thumbnail-card {
     border: 1px solid #ccc;
     /* Default gray border */
@@ -165,6 +181,11 @@ export default {
 .thumbnail-card.selected-thumbnail {
     border-color: #1976d2;
     /* Vuetify primary blue */
+}
+
+.spaced-paragraphs p {
+    margin-bottom: 1.5rem;
+    /* equivalent to mb-6 */
 }
 
 /* Scoped CSS */

@@ -39,6 +39,57 @@
 
     </v-container>
     <v-divider></v-divider>
+    <v-container fluid id="features" class="mt-2">
+        <v-row align="center" justify="center">
+            <v-col>
+                <v-row align="center" justify="space-around">
+
+                    <!-- desktop cards -->
+                    <v-col class="text-center" v-for="(feature, i) in business_holdings" :key="i" v-if="!isMobileView">
+                        <v-hover>
+                            <template v-slot:default="{ isHovering, props }">
+                                <v-card :to="feature.link" class="card" shaped :elevation="isHovering ? 10 : 1"
+                                    rounded="lg">
+                                    <v-img v-bind="props" :src="feature.img" height="100" cover
+                                        :class="isHovering ? 'zoom-efect' : ''">
+                                        <div class="fill-height bottom-gradient"></div>
+                                    </v-img>
+                                    <v-card-text class="text-center py-6">
+                                        <h3 class="font-weight-medium text-primary text-h6">{{ t[feature.title] }}</h3>
+                                    </v-card-text>
+
+                                </v-card>
+                            </template>
+                        </v-hover>
+                    </v-col>
+                </v-row>
+            </v-col>
+        </v-row>
+    </v-container>
+
+    <!-- mobile view cards -->
+    <template v-for="(feature, i) in business_holdings" :key="i">
+        <transition :name="i % 2 === 0 ? 'scroll-x-transition' : 'scroll-x-reverse-transition'" appear>
+            <v-card :to="feature.link" variant="text" class="cursor-pointer ma-2">
+                <v-img v-if="isMobileView" :src="feature.img" cover
+                    gradient="to top, rgba(0, 0, 0, 0.8), rgba(50, 50, 50, 0.5)">
+                    <v-container class="fill-height d-flex align-center justify-center">
+                        <div class="text-center text-white">
+                            <h2 class="text-h4 mb-4"> {{ t[feature.title] }}</h2>
+                        </div>
+                    </v-container>
+
+                    <!-- Optional: Loading Placeholder -->
+                    <template v-slot:placeholder>
+                        <v-row align="center" class="fill-height ma-0" justify="center">
+                            <v-progress-circular color="grey-lighten-5" indeterminate></v-progress-circular>
+                        </v-row>
+                    </template>
+                </v-img>
+            </v-card>
+        </transition>
+    </template>
+    <v-divider></v-divider>
 </template>
 
 <script>
@@ -59,6 +110,30 @@ export default {
     },
     data() {
         return {
+            isMobileView: false,
+            business_holdings: [
+
+                {
+                    img: "/eishi/Pangasinan Farm.jpg",
+                    title: "pangasinanFarm",
+                    link: "/business_holdings/pangasinan_farm",
+                },
+                {
+                    img: "/eishi/1732160486501.jpg",
+                    title: "assignedProperties",
+                    link: "/business_holdings/assigned_properties",
+                },
+                {
+                    img: "/eishi/Batangas Poultry Farm.jpg",
+                    title: "batangasPoultry",
+                    link: "/business_holdings/batangas/poultry_farm",
+                },
+                {
+                    img: "/eishi/DJI_0598-min.jpg",
+                    title: "cebuCondo",
+                    link: "/business_holdings/cebu_condominium",
+                },
+            ],
             images: [
                 'https://picsum.photos/seed/1/600/400',
                 'https://picsum.photos/seed/2/600/400',
@@ -72,9 +147,17 @@ export default {
         };
     },
     mounted() {
-        this.selectedImage = this.images[0]; // Set default selected image
+        this.selectedImage = this.images[0];
+        this.checkMobileView(); // check on initial load
+        window.addEventListener('resize', this.checkMobileView); // attach resize listener
+    },
+    beforeUnmount() {
+        window.removeEventListener('resize', this.checkMobileView); // clean up
     },
     methods: {
+        checkMobileView() {
+            this.isMobileView = this.$vuetify.display.mobile;
+        },
         selectImage(img) {
             this.selectedImage = img;
         },
@@ -82,7 +165,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .thumbnail-card {
     border: 1px solid #ccc;
     /* Default gray border */
@@ -94,10 +177,15 @@ export default {
     /* Vuetify primary blue */
 }
 
+.spaced-paragraphs p {
+    margin-bottom: 1.5rem;
+    /* equivalent to mb-6 */
+}
+
 /* Scoped CSS */
 @media (max-width: 600px) {
     .main-image {
-        height: 60vw !important;
+        height: 80vw !important;
     }
 
     .spaced-paragraphs p {

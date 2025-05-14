@@ -1,31 +1,31 @@
 <template>
-    <v-container class="py-10">
+    <v-container>
         <v-row>
-            <v-col cols="12" md="6">
-                <!-- Main Image Display -->
-                <v-img :src="selectedImage" class="rounded-lg main-image" cover>
-                    <template v-slot:placeholder>
-                        <v-row align="center" class="fill-height ma-0" justify="center">
-                            <v-progress-circular color="grey-lighten-5" indeterminate></v-progress-circular>
-                        </v-row>
-                    </template>
-                </v-img>
-
-
+            <!-- mobile view -->
+            <v-col cols="12" v-if="isMobileView">
+                <v-carousel continuous cycle v-model="selectedIndex" hide-delimiters height="400" :show-arrows="false"
+                    class="rounded-lg">
+                    <v-carousel-item v-for="(img, index) in images" :key="index" :src="img" class="main-image" />
+                </v-carousel>
 
                 <!-- Thumbnails -->
                 <v-row class="mt-4 d-flex flex-nowrap overflow-auto" dense no-gutters style="gap: 8px;">
-                    <div v-for="(img, index) in images" :key="index" style="flex: 0 0 auto; width: 80px;">
+                    <div v-for="(img, index) in images" :key="index" style="flex: 0 0 auto; width: 80px;"
+                        @click="selectImageByIndex(index)">
                         <v-card variant="outlined" class="thumbnail-card"
-                            :class="{ 'selected-thumbnail': img === selectedImage }">
-                            <v-img :src="img" height="80" width="80" cover @click="selectImage(img)"
-                                style="cursor: pointer;"></v-img>
+                            :class="{ 'selected-thumbnail': index === selectedIndex }">
+                            <v-img :src="img" height="80" width="80" cover style="cursor: pointer;" />
                         </v-card>
                     </div>
                 </v-row>
 
-
-
+            </v-col>
+            <!-- desktop view -->
+            <v-col cols="6" v-if="!isMobileView">
+                <v-carousel continuous cycle v-model="selectedIndex" height="500" :show-arrows="false"
+                    class="rounded-lg">
+                    <v-carousel-item v-for="(img, index) in images" :key="index" :src="img" class="main-image" cover />
+                </v-carousel>
             </v-col>
 
             <!-- Info Section -->
@@ -62,8 +62,7 @@
                             <template v-slot:default="{ isHovering, props }">
                                 <v-card :to="feature.link" class="card" shaped :elevation="isHovering ? 10 : 1"
                                     rounded="lg">
-                                    <v-img v-bind="props" :src="feature.img" height="100" cover
-                                        :class="isHovering ? 'zoom-efect' : ''">
+                                    <v-img v-bind="props" :src="feature.img" height="100" cover>
                                         <div class="fill-height bottom-gradient"></div>
                                     </v-img>
                                     <v-card-text class="text-center py-6">
@@ -118,10 +117,14 @@ export default {
         SwiperSlide,
     },
     computed: {
+        selectedImage() {
+            return this.images[this.selectedIndex];
+        },
         ...mapState(useLanguageStore, ['t']),
     },
     data() {
         return {
+            selectedIndex: 0,
             isMobileView: false,
             business_holdings: [
                 {
@@ -157,8 +160,9 @@ export default {
             modules: [Autoplay, Pagination, Navigation],
         };
     },
+
     mounted() {
-        this.selectedImage = this.images[0];
+        this.selectedImage = this.images[0]; // Set default selected image
         this.checkMobileView(); // check on initial load
         window.addEventListener('resize', this.checkMobileView); // attach resize listener
     },
@@ -169,8 +173,8 @@ export default {
         checkMobileView() {
             this.isMobileView = this.$vuetify.display.mobile;
         },
-        selectImage(img) {
-            this.selectedImage = img;
+        selectImageByIndex(index) {
+            this.selectedIndex = index;
         },
     },
 };
@@ -189,7 +193,7 @@ export default {
 }
 
 .spaced-paragraphs p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     /* equivalent to mb-6 */
 }
 

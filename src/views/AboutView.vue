@@ -1,6 +1,6 @@
 <template>
   <div class="bg-grey-lighten-4">
-    <v-img v-if="isMobileView" src="/images/1732160495699.jpg" cover height="500" height-sm="400" height-xs="300"
+    <v-img v-if="isMobileView" src="/images/1732160495699.jpg" cover height="300" height-sm="400" height-xs="300"
       class="mt-5">
       <template v-slot:placeholder>
         <v-row align="center" class="fill-height ma-0" justify="center">

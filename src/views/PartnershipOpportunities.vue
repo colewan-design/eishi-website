@@ -30,7 +30,7 @@
         </v-row>
     </v-container>
 
-    <v-img v-if="isMobileView" src="/images/1732160491688.jpg" height="400" cover />
+    <v-img data-aos="flip-up" v-if="isMobileView" src="/images/1732160491688.jpg" height="400" cover />
 
     <v-container>
         <!-- Government Collaboration -->
@@ -44,7 +44,7 @@
             </v-col>
         </v-row>
     </v-container>
-    <v-img v-if="isMobileView" src="/images/1732160494493.jpg" height="400" cover />
+    <v-img data-aos="flip-up" v-if="isMobileView" src="/images/1732160494493.jpg" height="400" cover />
     <v-container>
         <!-- CSR -->
         <v-row class="py-16" align="center">
@@ -57,7 +57,7 @@
             </v-col>
         </v-row>
     </v-container>
-    <v-img v-if="isMobileView" src="/images/1732160497759.jpg" height="400" cover />
+    <v-img data-aos="flip-up" v-if="isMobileView" src="/images/1732160497759.jpg" height="400" cover />
     <!-- Parallax Section -->
     <v-img src="/images/1732160495699.jpg" height="600" gradient="to top, rgba(0, 0, 0, 0.8), rgba(50, 50, 50, 0.5)"
         cover>

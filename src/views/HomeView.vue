@@ -40,7 +40,7 @@
 </style>
 <template>
   <div class="hero-container position-relative ">
-    <video autoplay loop muted playsinline class="video-background" data-aos="zoom-in">
+    <video autoplay loop muted playsinline class="video-background">
       <source src="/eishi/videos/sample.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>

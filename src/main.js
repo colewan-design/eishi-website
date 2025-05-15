@@ -25,6 +25,6 @@ app.mount('#app')
 // Initialize AOS after mounting
 AOS.init({
     once: false, // Animation will fire every time element scrolls into view
-    duration: 1000, // Duration in milliseconds
+    duration: 500, // Duration in milliseconds
     easing: 'ease-in-out',
 })

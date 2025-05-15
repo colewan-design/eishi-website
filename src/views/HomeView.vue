@@ -1,4 +1,9 @@
 <style scoped>
+.zoom-efect {
+  transform: scale(1.1);
+  transition: transform 1s ease;
+}
+
 .hero-container {
   width: 100%;
   height: 50vh;
@@ -34,15 +39,15 @@
 }
 </style>
 <template>
-  <div class="hero-container position-relative">
-    <video autoplay loop muted playsinline class="video-background">
+  <div class="hero-container position-relative ">
+    <video autoplay loop muted playsinline class="video-background" data-aos="zoom-in">
       <source src="/eishi/videos/sample.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
 
     <!-- Overlay Text -->
     <div class="overlay d-flex flex-column align-center justify-center text-center">
-      <h1 class="font-weight-bold mb-4 display-1 display-md-2 display-lg-1">
+      <h1 class="animate__animated  animate__swing font-weight-bold mb-4 display-1 display-md-2 display-lg-1">
         {{ t.welcome }}
       </h1>
       <v-btn rounded size="x-large" class="mt-5" color="primary">
@@ -53,6 +58,7 @@
     </div>
 
   </div>
+  <!-- desktop -->
   <div class="bg-grey-lighten-4">
     <v-container class="pt-10 mb-10" fluid v-if="!isMobileView">
       <v-row>
@@ -70,16 +76,16 @@
         </v-col>
       </v-row>
     </v-container>
-
+    <!-- mobile -->
     <v-container class="pt-10 mb-10" fluid v-if="isMobileView">
       <v-row>
         <v-col>
           <v-card class="mx-auto ma-2 " variant="text">
             <span class="text-body-1" style="line-height: 2;">
-              <p class="mb-5">
+              <p class="mb-5" data-aos="fade-right">
                 {{ t.homeParagraph1 }}
               </p>
-              <p>
+              <p data-aos="fade-left">
                 {{ t.homeParagraph2 }}
               </p>
             </span>
@@ -101,7 +107,7 @@
           <v-col class="text-center" v-for="(feature, i) in business_holdings" :key="i" v-if="!isMobileView">
             <v-hover>
               <template v-slot:default="{ isHovering, props }">
-                <v-card :to="feature.link" class="card" shaped :elevation="isHovering ? 10 : 4" rounded="lg">
+                <v-card :to="feature.link" class="card " shaped :elevation="isHovering ? 10 : 4" rounded="lg">
                   <v-img v-bind="props" :src="feature.img" height="300px" cover :class="isHovering ? 'zoom-efect' : ''">
                     <div class="fill-height bottom-gradient"></div>
                   </v-img>
@@ -117,31 +123,91 @@
       </v-col>
     </v-row>
   </v-container>
+  <!-- Mobile view cards -->
+  <v-card to="/business_holdings/batangas/poultry_farm" flat
+    class="cursor-pointer ma-2 animate__animated animate__fadeInLeftBig">
+    <v-img data-aos="fade-right" v-if="isMobileView" src="/eishi/Batangas Poultry Farm.jpg" cover height="300"
+      gradient="to top, rgba(0, 0, 0, 0.8), rgba(50, 50, 50, 0.5)">
+      <v-container class="fill-height d-flex align-center justify-center">
+        <div class="text-center text-white">
+          <h2 class="text-h4 mb-4">{{ t.batangasPoultry }}</h2>
+        </div>
+      </v-container>
+      <template v-slot:placeholder>
+        <v-row align="center" class="fill-height ma-0" justify="center">
+          <v-progress-circular color="grey-lighten-5" indeterminate></v-progress-circular>
+        </v-row>
+      </template>
+    </v-img>
+  </v-card>
 
-  <!-- mobile view cards -->
-  <template v-for="(feature, i) in business_holdings" :key="i">
-    <transition :name="i % 2 === 0 ? 'scroll-x-transition' : 'scroll-x-reverse-transition'" appear>
-      <v-card :to="feature.link" flat class="cursor-pointer ma-2">
-        <v-img v-if="isMobileView" :src="feature.img" cover height="600"
-          gradient="to top, rgba(0, 0, 0, 0.8), rgba(50, 50, 50, 0.5)">
-          <v-container class="fill-height d-flex align-center justify-center">
-            <div class="text-center text-white">
-              <h2 class="text-h4 mb-4"> {{ t[feature.title] }}</h2>
-            </div>
-          </v-container>
+  <v-card to="/business_holdings/pangasinan_farm" flat
+    class="cursor-pointer ma-2 animate__animated animate__fadeInLeftBig">
+    <v-img data-aos="fade-left" v-if="isMobileView" src="/eishi/Pangasinan Farm.jpg" cover height="300"
+      gradient="to top, rgba(0, 0, 0, 0.8), rgba(50, 50, 50, 0.5)">
+      <v-container class="fill-height d-flex align-center justify-center">
+        <div class="text-center text-white">
+          <h2 class="text-h4 mb-4">{{ t.pangasinanFarm }}</h2>
+        </div>
+      </v-container>
+      <template v-slot:placeholder>
+        <v-row align="center" class="fill-height ma-0" justify="center">
+          <v-progress-circular color="grey-lighten-5" indeterminate></v-progress-circular>
+        </v-row>
+      </template>
+    </v-img>
+  </v-card>
 
-          <!-- Optional: Loading Placeholder -->
-          <template v-slot:placeholder>
-            <v-row align="center" class="fill-height ma-0" justify="center">
-              <v-progress-circular color="grey-lighten-5" indeterminate></v-progress-circular>
-            </v-row>
-          </template>
-        </v-img>
-      </v-card>
-    </transition>
-  </template>
+  <v-card to="/business_holdings/assigned_properties" flat
+    class="cursor-pointer ma-2 animate__animated animate__fadeInLeftBig">
+    <v-img data-aos="fade-right" v-if="isMobileView" src="/eishi/1732160486501.jpg" cover height="300"
+      gradient="to top, rgba(0, 0, 0, 0.8), rgba(50, 50, 50, 0.5)">
+      <v-container class="fill-height d-flex align-center justify-center">
+        <div class="text-center text-white">
+          <h2 class="text-h4 mb-4">{{ t.assignedProperties }}</h2>
+        </div>
+      </v-container>
+      <template v-slot:placeholder>
+        <v-row align="center" class="fill-height ma-0" justify="center">
+          <v-progress-circular color="grey-lighten-5" indeterminate></v-progress-circular>
+        </v-row>
+      </template>
+    </v-img>
+  </v-card>
 
+  <v-card to="/business_holdings/kalinga_residential" flat
+    class="cursor-pointer ma-2 animate__animated animate__fadeInLeftBig">
+    <v-img data-aos="fade-left" v-if="isMobileView" src="/eishi/Solinea3.jpg" cover height="300"
+      gradient="to top, rgba(0, 0, 0, 0.8), rgba(50, 50, 50, 0.5)">
+      <v-container class="fill-height d-flex align-center justify-center">
+        <div class="text-center text-white">
+          <h2 class="text-h4 mb-4">{{ t.kalingaResidential }}</h2>
+        </div>
+      </v-container>
+      <template v-slot:placeholder>
+        <v-row align="center" class="fill-height ma-0" justify="center">
+          <v-progress-circular color="grey-lighten-5" indeterminate></v-progress-circular>
+        </v-row>
+      </template>
+    </v-img>
+  </v-card>
 
+  <v-card to="/business_holdings/cebu_condominium" flat
+    class="cursor-pointer ma-2 animate__animated animate__fadeInLeftBig">
+    <v-img data-aos="fade-right" v-if="isMobileView" src="/eishi/DJI_0598-min.jpg" cover height="300"
+      gradient="to top, rgba(0, 0, 0, 0.8), rgba(50, 50, 50, 0.5)">
+      <v-container class="fill-height d-flex align-center justify-center">
+        <div class="text-center text-white">
+          <h2 class="text-h4 mb-4">{{ t.cebuCondo }}</h2>
+        </div>
+      </v-container>
+      <template v-slot:placeholder>
+        <v-row align="center" class="fill-height ma-0" justify="center">
+          <v-progress-circular color="grey-lighten-5" indeterminate></v-progress-circular>
+        </v-row>
+      </template>
+    </v-img>
+  </v-card>
 
   <v-container class="mt-10 mb-10" fluid>
     <v-row>
@@ -153,12 +219,6 @@
 
 
 </template>
-<style>
-.zoom-efect {
-  transform: scale(1.8);
-  transition: transform 2s ease;
-}
-</style>
 <script>
 import { mapState } from 'pinia';
 import { useLanguageStore } from '@/stores/languageStore';

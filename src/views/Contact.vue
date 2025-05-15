@@ -25,8 +25,12 @@
                 <!-- Contact Information + Form -->
                 <v-col cols="12" md="4" class="mx-auto">
                     <div class="mb-10">
-                        <h1 v-if="!isMobileView" class="text-h2 text-primary mb-4">Have Any Queries? Feel Free To Contact Us</h1>
-                        <h1 v-if="isMobileView" class="text-h3 text-primary mb-4">Have Any Queries? Feel Free To Contact Us</h1>
+                        <h1 v-if="!isMobileView" class="text-h2 text-primary mb-4">Have Any Queries? Feel Free To
+                            Contact Us
+                        </h1>
+                        <h1 v-if="isMobileView" class="text-h3 text-primary mb-4">Have Any Queries? Feel Free To Contact
+                            Us
+                        </h1>
                         <p class="mb-4 text-medium-emphasis">{{ t.contactP1 }}</p>
                         <div class="ma-10">
                             <p class="mb-4">
